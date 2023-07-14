@@ -12,8 +12,9 @@ const router = express.Router();
 router.use(BodyParser.json())
 router.use(cookieParser());
 router.use(cors({
-    origin: ['http://localhost:3000','https://ecommerce-app.onrender.com' ],// Replace with your frontend domain
-    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+    origin: ['https://ecommerce-8woe.onrender.com'],// Replace with your frontend domain
+    credentials: true, 
+    // Allow credentials (cookies, authorization headers, etc.)
   }));
 
 
@@ -97,7 +98,7 @@ router.get('/home',async(req,res)=>{
         const authdata = req.rootUser;
         const data=await Admin.find({});
         
-        
+        res.header({'Access-Control-Allow-Origin':"*"})
         res.status(201).send(data);
     }
     catch(err){
@@ -113,7 +114,7 @@ router.get('/homeedit',async(req,res)=>{
       
     }
 })
-router.post('/cart',Authenticate,async(req,res)=>{
+router.post('apii/cart',Authenticate,async(req,res)=>{
     
     try{
         const data = await req.rootUser;

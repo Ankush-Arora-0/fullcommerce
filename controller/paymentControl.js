@@ -1,4 +1,4 @@
-import { instance } from "../../app.js";
+import { instance } from "../app.js";
 import crypto from 'crypto';
 import OrderMod from "../model/order.js";
 
@@ -46,11 +46,11 @@ export const paymentVerification = async (req, res) => {
         const orderFind = await OrderMod.findOne({ order_id: razorpay_order_id });
         orderFind.transaction_ids = await orderFind.transaction_ids.concat({ transaction_id: razorpay_payment_id })
         await orderFind.save();
-        res.redirect('http://localhost:3000/');
+        res.redirect('https://ecommerce-8woe.onrender.com/');
     }
     else {
         await OrderMod.deleteOne({ order_id: razorpay_order_id });
-        res.redirect('http://localhost:3000/');
+        res.redirect('https://ecommerce-8woe.onrender.com/');
 
     }
 }
