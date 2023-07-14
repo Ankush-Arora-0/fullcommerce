@@ -114,7 +114,7 @@ router.get('/homeedit',async(req,res)=>{
       
     }
 })
-router.post('apii/cart',Authenticate,async(req,res)=>{
+router.post('/apii/cart',Authenticate,async(req,res)=>{
     
     try{
         const data = await req.rootUser;
