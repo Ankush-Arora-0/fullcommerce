@@ -12,7 +12,7 @@ const router = express.Router();
 router.use(BodyParser.json())
 router.use(cookieParser());
 router.use(cors({
-    origin: ['https://ecommerce-8woe.onrender.com'],// Replace with your frontend domain
+    origin: ['https://fullcommerceweb.onrender.com'],// Replace with your frontend domain
     credentials: true, 
     // Allow credentials (cookies, authorization headers, etc.)
   }));
